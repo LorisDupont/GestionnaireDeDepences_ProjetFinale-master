@@ -1,0 +1,77 @@
+<ion-content>
+  <div class="top">
+    <ion-icon class="home" name="home" routerLink="/home"></ion-icon>
+    <h1 class="title">Vos dépenses!</h1>
+    <ion-icon  style="cursor: pointer; display: flex;" id="filters" class="filter" name="filter" (click)="openFilter()"></ion-icon>
+    <ion-icon style="cursor: pointer; display: none;" class="filterclose" id="filtercloses" name="close" (click)="closefilter()" ></ion-icon>
+  </div>
+
+  <div>
+    <div id="depenses" class="liste">
+      <ion-button class="adddepense" color="success" expand="block" style="text-align: center;" routerLink="/add-depense">Ajouter une dépense</ion-button>
+      <ion-card color="light" class="liste-depenses">
+        <ion-list>
+          <ion-item>
+            <ion-title>{{depense.nom}}</ion-title>
+          </ion-item>
+        </ion-list>
+
+      </ion-card>
+
+    </div>
+    <div id="filter">
+      <ion-card class="card">
+        <ion-item>
+          <ion-checkbox ></ion-checkbox>
+          <ion-label> Loisir</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Facture</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Nourriture</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Domicialiation</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Abonnement</ion-label>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Economie</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Durée</ion-label>
+          <ion-select placeholder="---">
+            <ion-select-option>24 heures</ion-select-option>
+            <ion-select-option>1 semaine</ion-select-option>
+            <ion-select-option>1 mois</ion-select-option>
+            <ion-select-option>1 année</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" fill="clear" color="dark" (click)="closefilter()">Valider</ion-button>
+
+      </ion-card>
+      <!-- <ion-card [value]="dep.nom" *ngFor="let dep of depense">
+        <ion-card-header>{{dep.nom}}</ion-card-header>
+      </ion-card> -->
+    </div>
+
+
+
+  </div>
+
+
+
+</ion-content>

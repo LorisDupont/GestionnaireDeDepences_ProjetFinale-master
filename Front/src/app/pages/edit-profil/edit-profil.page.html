@@ -1,0 +1,93 @@
+<ion-content>
+  <div class="main_content_div">
+    
+    <ion-buttons slot="start" class="menu_btn">
+      <ion-icon style="font-size: 20px; margin-top:15px;margin-left: 15px;" icon="home" color="light" routerLink="/home"></ion-icon>
+      <!-- <input type = "color" [(ngModel)]="color1" /> -->
+
+    </ion-buttons>
+
+    <div id="userDiv" class="user_div">
+      <div class="first_div">
+        <ion-label class="username">Nom Prenom</ion-label>
+        <ion-icon style="margin-left:10p ; font-size: 20px;" name="create"></ion-icon>
+      </div>
+      <div class="user_back">
+        <ion-icon style="margin-left:10p ; font-size: 20px;" name="create"></ion-icon>
+      </div>
+    </div>
+
+    <div class="content_div">
+      <div class="test_details">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6" >
+              <div class="flex_div">
+                <div class="round_div">
+                  <img src="../../../assets/icons8-euro-50.png">
+                </div>
+                <div class="details">
+                  <ion-label class="bold_lbl">Solde</ion-label>
+                  <ion-label class="small_lbl">1110000€</ion-label>
+                </div>
+              </div>
+            </ion-col>
+
+
+            <ion-col size="6" >
+              <div class="flex_div">
+                <div class="round_div">
+                  <img src="../../../assets/icons8-tirelire-64.png">
+                </div>
+                <div class="details">
+                  <ion-label class="bold_lbl">Epargne</ion-label>
+                  <ion-label class="small_lbl">12€</ion-label>
+                </div>
+              </div>
+            </ion-col>
+
+            <ion-col size="8" >
+              <div class="flex_div">
+                <div class="round_div">
+                  <img src="../../../assets/icons8-initier-le-transfert-d’argent-50.png">
+                </div>
+                <div class="details">
+                  <ion-label class="bold_lbl">Depenses Mensuel</ion-label>
+                  <ion-label class="small_lbl">849€</ion-label>
+                </div>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+      </div>
+
+        <div class="list_div">
+          <ion-label>Modifier le profile</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+
+        <div class="list_div">
+          <ion-label>Changer de compte</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+
+
+        <div class="list_div" routerLink="/historique">
+          <ion-label>Historique</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+
+
+        <div class="list_div">
+          <ion-label>Déconnexion</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+
+        <div class="list_div" >
+          <ion-button >Se déconnecter</ion-button>
+
+        </div>
+    </div>
+  </div>
+</ion-content>

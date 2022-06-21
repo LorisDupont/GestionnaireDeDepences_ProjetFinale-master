@@ -1,0 +1,51 @@
+
+<div class="fond">
+  <div class="padding">
+
+    <div class="logo">
+      <img class="image" src="../../../assets/icon.gif">
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="card card-container">
+
+        <form class="form"
+          name="form"
+          (ngSubmit)="onSubmit()"
+          #f="ngForm">
+
+
+          <ion-item class="item">
+            <label for="nom">Nom du compte</label>
+            <input
+              type="text"
+              class="form-control"
+              name="nom"
+
+              [(ngModel)]="form.nom"
+              required
+              nom
+              #email="ngModel"
+            />
+          </ion-item>
+          <ion-item class="item">
+            <label for="description">Description</label>
+            <input
+              type="description"
+              class="form-control"
+              name="description"
+              [(ngModel)]="form.description"
+              required
+              #password="ngModel"
+            />
+
+          </ion-item>
+          <div class="item">
+
+            <ion-button expand="block" shape="round"  color="tertiary" (click)="onSubmit()"> Ajouter</ion-button>
+
+
+            <ion-button expand="block" shape="round"  color="tertiary" routerLink="/account"> Annuler</ion-button>
+
+

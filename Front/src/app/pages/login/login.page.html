@@ -1,0 +1,105 @@
+
+<div class="fond">
+  <div class="padding">
+
+    <div class="logo">
+      <img class="image" src="../../../assets/icon.gif">
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="card card-container">
+
+        <form class="form"
+          *ngIf="!isLoggedIn"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate>
+
+
+          <ion-item class="item">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+
+              [(ngModel)]="form.email"
+              required
+              email
+              #email="ngModel"
+            />
+            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+              <div *ngIf="email.errors['required']">Email requis</div>
+              <div *ngIf="email.errors['email']">
+                Adresse valide requise.
+              </div>
+            </div>
+          </ion-item>
+          <ion-item class="item">
+            <label for="password">Mot de passe</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              #password="ngModel"
+            />
+            <div class="alert-danger" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors['required']">Mot de passe requis.</div>
+              <div *ngIf="password.errors['minlength']">
+
+              </div>
+            </div>
+          </ion-item>
+          <div class="item">
+
+            <ion-button expand="block" shape="round"  color="tertiary" type="submit" (click)="onSubmit(email, password)"> Se connecter</ion-button>
+
+
+            <ion-button expand="block" shape="round"  color="tertiary" routerLink="/register"> S'enregistrer</ion-button>
+
+            <ion-item lines="none">
+              <ion-label class="labell" >Ou connectez-vous avec </ion-label>
+            </ion-item>
+
+
+            <div class="flex">
+              <ion-button shape="round" color="primary">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-button>
+
+              <ion-button shape="round" color="secondary" >
+                <ion-icon name="logo-twitter"></ion-icon>
+              </ion-button>
+
+              <ion-button shape="round" color="danger">
+                <ion-icon name="logo-google"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isLoggedIn" routerLinkActive="/profile">
+          Connecté!
+
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <ion-button expand="block" shape="round" fill="clear"  routerLink="/home">Retour</ion-button>
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+

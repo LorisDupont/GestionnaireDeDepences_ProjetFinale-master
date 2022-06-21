@@ -1,0 +1,43 @@
+<ion-header class="nav">
+  <div class="bar">
+    <ion-icon id="ham" style="cursor: pointer;" class="menu" name="menu" (click)="openSlideMenu()"></ion-icon>
+    <ion-icon style="cursor: pointer;" class="menuclose" id="menucloses" name="close" (click)="closeSlideMenu()" style="visibility: hidden;"></ion-icon>
+    <ion-title routerLink="/home" color="withe" style="cursor: pointer;">
+
+      <img  class="image" src="../../../assets/icon.gif">
+      SYM
+    </ion-title>
+
+    <ion-icon tab="login" routerLink="/profile" style="cursor: pointer;"  class="person" name="person"></ion-icon>
+  </div>
+
+</ion-header>
+
+<ion-content>
+  <div class="page">
+    <ion-card class="card" id="card" >
+      <ion-card-header>
+        Save Your Moneys
+      </ion-card-header>
+      <ion-card-content style="width: auto;">
+        <canvas #doughnutCanvas style="position: relative; height:auto; width:90%">{{doughnutCanvas}}</canvas>
+        <br>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia porro totam, alias earum voluptatibus sit sint recusandae sunt modi, dicta fuga error repellat facilis quidem officiis fugiat atque architecto? Qui.
+        Culpa officia explicabo nulla repellat, quod rerum veniam enim dignissimos officiis sit quis totam architecto? Modi non voluptas omnis temporibus blanditiis! Esse eaque dolorum distinctio dolore! Vel ipsam ad eum?
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+  <div id="side-menu" class="side-nav" style="visibility: hidden; overflow-y: scroll; height:100vh">
+    <a href="/home">Acceuil</a>
+    <a href="/user-board">Dashboard</a>
+    <a href="/profile">Changer de compte</a>
+    <a href="/add-depense">Ajouter une dépense</a>
+    <a href="/historique">historique</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+
+</ion-content>

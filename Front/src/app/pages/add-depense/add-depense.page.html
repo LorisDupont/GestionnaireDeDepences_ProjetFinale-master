@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter une depense</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-button expand='block' >Ajouter une Image</ion-button>
+  <ion-list>
+    <form class="form"
+    name="form"
+    (ngSubmit)=" onSubmit()"
+    #f="ngForm"
+    >
+    <ion-item class="item"  >
+      <ion-label floating >Nom</ion-label>
+      <ion-input [(ngModel)]="depense.nom"  placeholder="Nom" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="item">
+      <ion-label >Prix</ion-label>
+      <ion-input [(ngModel)]="depense.valeur"  placeholder="Valeur" type="number"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="item"  >
+      <ion-label >Date d'achat</ion-label>
+      <ion-input [(ngModel)]="depense.date" placeholder="Date d'achat" type="date"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="item">
+      <ion-label >Type de dépense</ion-label>
+      <ion-select [(ngModel)]="depense.type" placeholder="---">
+      <ion-select-option placeholder="---">---</ion-select-option>
+      <ion-select-option [value]="type.title" *ngFor="let type of types" >{{type.title}}</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item class="item">
+      <ion-label >Catégorie</ion-label>
+      <ion-select [(ngModel)]="depense.categorie" placeholder="---">
+        <ion-select-option placeholder="---">---</ion-select-option>
+        <ion-select-option [value]="cat.title" *ngFor="let cat of categories" >{{cat.title}}</ion-select-option>
+
+        </ion-select>
+    </ion-item>
+    <ion-item class="item"  >
+      <ion-label floating >Description</ion-label>
+      <ion-input [(ngModel)]="depense.description"   placeholder="Description" type="text"></ion-input>
+    </ion-item>
+
+
+    <ion-button (click)="onSubmit()" expand="block" shape="round"  color="success" routerLink="/historique/2">Ajouter</ion-button>
+
+  </form>
+  <ion-button expand="block" shape="round" color="danger" routerLink="/home" >Annuler</ion-button>
+  </ion-list>
+
+</ion-content>
+
