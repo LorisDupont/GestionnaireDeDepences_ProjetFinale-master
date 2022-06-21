@@ -7,6 +7,7 @@ export interface Depense {
   categorie: string;
   description: string;
   id: string;
+ 
 
 }
 

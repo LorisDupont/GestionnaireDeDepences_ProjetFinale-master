@@ -7,7 +7,7 @@
 
 <ion-content>
 
-  <ion-button expand='block' >Ajouter une Image</ion-button>
+  <ion-button  expand='block' (click)="takePicture()">Ajouter une Image</ion-button>
   <ion-list>
     <form class="form"
     name="form"
@@ -56,7 +56,7 @@
     </ion-item>
 
 
-    <ion-button (click)="onSubmit()" expand="block" shape="round"  color="success" routerLink="/historique/2">Ajouter</ion-button>
+    <ion-button (click)="onSubmit()" expand="block" shape="round"  color="success" routerLink="/historique">Ajouter</ion-button>
 
   </form>
   <ion-button expand="block" shape="round" color="danger" routerLink="/home" >Annuler</ion-button>

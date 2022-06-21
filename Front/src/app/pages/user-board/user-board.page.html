@@ -11,15 +11,15 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="head">
-    <h4>dépenses d'aujourd'hui</h4><ion-icon id="vue" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo()"></ion-icon><ion-icon (click)="changesLogo()" id="nonvue" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
 
-  </div>
     <div class="ion-padding" >
       <ion-card>
 
         <ion-card-header style="font-weight:bold ;">
-
+          <div class="head">
+            <h4>dépenses d'aujourd'hui</h4><ion-icon id="vue" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo()"></ion-icon><ion-icon (click)="changesLogo()" id="nonvue" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
+        
+          </div>
         </ion-card-header>
         <ion-card-content>
           <canvas #doughnutCanvas id="graph" style="position: relative; height:auto; width:auto">{{doughnutCanvas}}</canvas>
@@ -29,14 +29,14 @@
     </div>
 
 
-    <div class="head">
-
-      <h4>dépenses de cette semaine</h4><ion-icon id="vue2" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo2()"></ion-icon><ion-icon (click)="changesLogo2()" id="nonvue2" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
-    </div>
       <div class="ion-padding" >
         <ion-card>
           <ion-card-header style="font-weight:bold ;">
 
+            <div class="head">
+
+              <h4>dépenses de cette semaine</h4><ion-icon id="vue2" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo2()"></ion-icon><ion-icon (click)="changesLogo2()" id="nonvue2" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
+            </div>
           </ion-card-header>
           <ion-card-content>
 
@@ -49,14 +49,14 @@
 
       </div>
 
-      <div class="head">
-
-        <h4>dépenses de ce mois</h4><ion-icon id="vue3" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo3()"></ion-icon><ion-icon (click)="changesLogo3()" id="nonvue3" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
-      </div>
         <div class="ion-padding" >
           <ion-card>
             <ion-card-header style="font-weight:bold ;">
 
+              <div class="head">
+
+                <h4>dépenses de ce mois</h4><ion-icon id="vue3" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo3()"></ion-icon><ion-icon (click)="changesLogo3()" id="nonvue3" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
+              </div>
             </ion-card-header>
             <ion-card-content>
               <canvas #doughnutCanvas id="graph3" style="position: relative; height:auto; width:auto">{{doughnutCanvas}}</canvas>
@@ -67,14 +67,14 @@
 
         </div>
 
-        <div class="head">
 
-          <h4>dépenses de cette année</h4><ion-icon id="vue4" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo4()"></ion-icon><ion-icon (click)="changesLogo4()" id="nonvue4" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
-        </div>
           <div class="ion-padding" >
             <ion-card>
               <ion-card-header style="font-weight:bold ;">
+                <div class="head">
 
+                  <h4>dépenses de cette année</h4><ion-icon id="vue4" name="eye-outline" style="margin-top:5px ;" (click)="changeLogo4()"></ion-icon><ion-icon (click)="changesLogo4()" id="nonvue4" name="eye-off-outline" style="display:none; padding-top:11px"></ion-icon>
+                </div>
               </ion-card-header>
               <ion-card-content>
 
