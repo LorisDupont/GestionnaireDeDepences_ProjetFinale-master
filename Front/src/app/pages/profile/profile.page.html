@@ -1,22 +1,18 @@
 <ion-content>
   <div class="main_content_div">
     <ion-buttons slot="start" class="menu_btn">
-      <ion-icon style="font-size: 20px; margin-top:15px;margin-left: 15px;" icon="home" color="light" routerLink="/home"></ion-icon>
-
+      <ion-icon style="font-size: 20px; margin-top:15px;margin-left: 15px;" icon="home" color="light" routerLink="/home"></ion-icon> 
     </ion-buttons>
 
     <div class="user_div">
       <div class="first_div">
 
-        <h3>
-          <strong>{{ currentUser.username }}</strong><strong> Profile: </strong>
-          <strong>Roles:</strong>
-          <ul>
-            <li *ngFor="let role of currentUser.roles">
-              {{ role }}
-            </li>
-          </ul>
-        </h3>
+        
+        <span>
+          <strong style="margin: 7px;">{{ currentUser.nom }}</strong>
+          <strong>{{currentUser.prenom}}</strong>
+        </span>
+
 
 
         <ion-label class="username"></ion-label>
@@ -38,7 +34,7 @@
                 </div>
                 <div class="details">
                   <ion-label class="bold_lbl">Solde</ion-label>
-                  <ion-label class="small_lbl">1110000€</ion-label>
+                  <ion-label class="small_lbl">{{currentUser.solde}}</ion-label>
                 </div>
               </div>
             </ion-col>
@@ -51,19 +47,31 @@
                 </div>
                 <div class="details">
                   <ion-label class="bold_lbl">Epargne</ion-label>
-                  <ion-label class="small_lbl">12€</ion-label>
+                  <ion-label class="small_lbl">{{currentUser.epargne}}</ion-label>
                 </div>
               </div>
             </ion-col>
 
-            <ion-col size="8" >
+            <ion-col size="6" >
               <div class="flex_div">
                 <div class="round_div">
                   <img src="../../../assets/icons8-initier-le-transfert-d’argent-50.png">
                 </div>
                 <div class="details">
-                  <ion-label class="bold_lbl">Depenses Mensuel</ion-label>
-                  <ion-label class="small_lbl">849€</ion-label>
+                  <ion-label class="bold_lbl">Revenu</ion-label>
+                  <ion-label class="small_lbl">{{currentUser.revenu}}</ion-label>
+                </div>
+              </div>
+            </ion-col>
+
+            <ion-col size="6" >
+              <div class="flex_div">
+                <div class="round_div">
+                  <img src="../../../assets/images/logo-banque.png">
+                </div>
+                <div class="details">
+                  <ion-label class="bold_lbl">Compte</ion-label>
+                  <ion-label class="small_lbl">{{currentUser.compte}}</ion-label>
                 </div>
               </div>
             </ion-col>
@@ -83,6 +91,10 @@
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </div>
 
+        <div class="list_div" routerLink="/account">
+          <ion-label>Modifier les information du compte</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
 
         <div class="list_div" routerLink="/historique" >
           <ion-label>Historique</ion-label>
