@@ -39,7 +39,7 @@ export class ProfilePage implements OnInit {
       }
     });
     this.token.signOut();
-
+    this.reloadPage()
 
 
   }
