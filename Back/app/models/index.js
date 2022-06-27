@@ -7,6 +7,7 @@ const sequelize = new Sequelize(
   {
     host: config.HOST,
     dialect: config.dialect,
+    logging: config.logging,
     operatorsAliases: false,
 
     pool: {
@@ -51,39 +52,25 @@ db.user.belongsToMany(db.role, { through: "user_roles" });
 
 // });
 // ------------------------------------------------COMPTE--------------------------------------------------------
-db.comptes.hasOne(db.user, {
-  through: "user_comptes",
-  foreignKey:"compteId",
+db.comptes.belongsTo(db.user, {
+  foreignKey:"userId",
 
 })
-db.user.belongsTo(db.comptes,{
-  through: "user_comptes",
+db.user.hasOne(db.comptes,{
   foreignKey: "userId",
 
 })
 // ------------------------------------------------SOLDE_COMPTE--------------------------------------------------------
-db.solde.hasOne(db.comptes, {
-  through: "compte_soldes",
-  foreignKey:"soldeId",
+db.solde.hasOne(db.comptes)
+db.comptes.belongsTo(db.solde
 
-})
-db.comptes.belongsTo(db.solde,{
-  through: "compte_soldes",
-  foreignKey: "compteId",
-
-})
+)
 
 // ------------------------------------------------User_Compte--------------------------------------------------------
-db.solde.hasOne(db.comptes, {
-  through: "compte_soldes",
-  foreignKey:"soldeId",
+db.solde.hasOne(db.comptes)
+db.comptes.belongsTo(db.solde
 
-})
-db.comptes.belongsTo(db.solde,{
-  through: "compte_soldes",
-  foreignKey: "compteId",
-
-})
+)
 // ------------------------------------------------REVENU--------------------------------------------------------
 // db.revenu.hasOne(db.user, {
 //   through: "user_revenus",

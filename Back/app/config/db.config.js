@@ -5,6 +5,7 @@ module.exports = {
   DB: "mainsym",
 
   dialect: "mysql",
+  logging: false,
   pool: {
     max: 5,
     min: 0,

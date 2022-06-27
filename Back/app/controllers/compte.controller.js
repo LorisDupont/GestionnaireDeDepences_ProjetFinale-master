@@ -1,7 +1,8 @@
 const db = require("../models");
 const Comptes = db.comptes;
 const Op = db.Sequelize.Op;
-
+const Users = require("../controllers/user.controller")
+const compteRepository = require("../repository/compte-repository")
 exports.create = (req, res) => {
 
     if (!req.body.nom) {
@@ -10,18 +11,34 @@ exports.create = (req, res) => {
       });
       return;
     }
-
     const compte = {
+
       nom: req.body.nom,
       description: req.body.description,
-
+  
+  
     };
 
-    Comptes.create(compte)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
+   Comptes.create( compte )
+    .then( data => {
+        if (req.body.userId){
+          Users.findByPk(req.body.userId)
+        
+          .then(user => {
+           data.setUser(user).then(() =>{
+            res.send({message: "compte ok"})
+           })
+           
+           
+      });
+     }
+     else{
+      data.setUser([1]).then(() =>{
+        res.send({message: "compte ok"})
+       })
+     }
+    } )
+     .catch(err => {
         res.status(500).send({
           message:
             err.message || "error"

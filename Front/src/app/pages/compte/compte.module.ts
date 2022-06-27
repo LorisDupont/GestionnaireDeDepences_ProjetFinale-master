@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CompteComponent } from 'src/app/components/comptes/compte.component';
 import { IonicModule } from '@ionic/angular';
 
 import { ComptePageRoutingModule } from './compte-routing.module';

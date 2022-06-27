@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AuthService} from '../app/services/auth.service';
 import { AppComponent } from './app.component';
-import { CompteComponent } from './components/comptes/compte.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthComponent } from './components/auth/auth.component';

@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="fond">
   <div class="padding">
 
@@ -26,7 +26,7 @@
               [(ngModel)]="form.nom"
               required
               nom
-              #email="ngModel"
+              #nom="ngModel"
             />
           </ion-item>
           <ion-item class="item">
@@ -37,7 +37,7 @@
               name="description"
               [(ngModel)]="form.description"
               required
-              #password="ngModel"
+              #description="ngModel"
             />
 
           </ion-item>
@@ -47,5 +47,75 @@
 
 
             <ion-button expand="block" shape="round"  color="tertiary" routerLink="/account"> Annuler</ion-button>
+
+ -->
+
+
+ 
+<div class="fond">
+  <div class="padding">
+
+    <div class="logo">
+      <img class="image" src="../../../assets/icon.gif">
+
+    </div>
+
+    <div class="col-md-12">
+      <div class="card card-container">
+
+        <form class="form"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate>
+
+
+          <ion-item class="item">
+            <label for="nom">Nom</label>
+            <input
+              type="nom"
+              class="form-control"
+              name="nom"
+
+              [(ngModel)]="form.nom"
+              required
+              nom
+              #nom="ngModel"
+            />
+          </ion-item>
+          <ion-item class="item">
+            <label for="description">Description</label>
+            <input
+              type="description"
+              class="form-control"
+              name="description"
+              [(ngModel)]="form.description"
+              required
+              #description="ngModel"
+            />
+          </ion-item>
+          <div class="item">
+
+            <ion-button expand="block" shape="round"  color="tertiary" type="submit" (click)="onSubmit()"> Ajouter</ion-button>
+            <ion-button expand="block" shape="round"  color="tertiary" type="submit" routerLink="/compte"> Annuler</ion-button>
+
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+    <br><br>
+    <ion-button expand="block" shape="round" fill="clear"  routerLink="/home">Retour</ion-button>
+
+
+
+        </div>
+      </div>
+
+
+
+
 
 
