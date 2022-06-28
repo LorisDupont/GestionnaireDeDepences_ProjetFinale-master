@@ -14,36 +14,37 @@
 const db = require("../models");
 const User = db.user;
 const Op = db.Sequelize.Op;
-// exports.create = (req, res) => {
-//   // Validate request
-//   if (!req.body.nom) {
-//    res.status(400).send({
-//      message: "Content can not be empty!"
-//    });
-//    return;
-//  }
-//  // Create a User
-//  const user = {
-//    nom: req.body.nom,
-//    prenom: req.body.prenom,
-//    datedenaissance: req.body.datedenaissance,
-//    email: req.body.email,
-//    password: req.body.password,
-//    genre:  req.body.genre,
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body.nom) {
+   res.status(400).send({
+     message: "Content can not be empty!"
+   });
+   return;
+ }
+ // Create a User
+ const user = {
+   nom: req.body.nom,
+   prenom: req.body.prenom,
+   datedenaissance: req.body.datedenaissance,
+   email: req.body.email,
+   password: req.body.password,
+   genre:  req.body.genre,
+   salaire: req.body.salaire
 
-//  };
-//  // Save User in the database
-//  User.create(user)
-//    .then(data => {
-//      res.send(data);
-//    })
-//    .catch(err => {
-//      res.status(500).send({
-//        message:
-//          err.message || "error"
-//      });
-//    });
-// };
+ };
+ // Save User in the database
+ User.create(user)
+   .then(data => {
+     res.send(data);
+   })
+   .catch(err => {
+     res.status(500).send({
+       message:
+         err.message || "error"
+     });
+   });
+};
 
 
 // Retrieve all user from the database.

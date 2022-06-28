@@ -15,18 +15,23 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfilePage implements OnInit {
 
   currentUser: any;
-
+  id: any;
 
 
   constructor( private router: Router ,private authService: AuthService, private token: TokenStorageService, private userService: UserService) { }
-
+ 
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+
+  }
+  test(){
+    console.log(this.currentUser.nom);
+    console.log(this.currentUser.id);
+    console.log(this.currentUser.datedenaissance);
+    console.log(this.currentUser.salaire);
     
   }
-
-
   logout(){
     this.authService.logout().subscribe({
       next: data => {

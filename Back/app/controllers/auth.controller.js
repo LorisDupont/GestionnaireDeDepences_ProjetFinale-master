@@ -22,11 +22,11 @@ exports.signup =  (req, res) => {
       datedenaissance: req.body.datedenaissance,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
+      salaire: req.body.salaire,
+      genre: req.body.genre,
 
     });
-    const genre =  Genre.create({
-      genre: req.body.genre,
-    });
+
 
     if (req.body.roles) {
       const roles =  Role.findAll({

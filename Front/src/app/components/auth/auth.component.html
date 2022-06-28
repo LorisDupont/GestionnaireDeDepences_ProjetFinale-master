@@ -129,6 +129,49 @@
               </div>
             </div>
           </ion-item>
+
+          <ion-item class="item">
+            <label for="salaire">Salaire</label>
+            <input
+              type="salaire"
+              class="form-control"
+              name="salaire"
+
+              [(ngModel)]="form.salaire"
+              required
+              salaire
+              #salaire="ngModel"
+            />
+            <div class="alert-danger" *ngIf="salaire.errors && f.submitted">
+              <div *ngIf="salaire.errors['required']">Salaire requis</div>
+              <div *ngIf="salaire.errors['salaire']">
+                Salaire valide requise.
+              </div>
+            </div>
+          </ion-item>
+
+         <ion-item
+         type="genre"
+         class="form-control"
+         name="genre"
+         [(ngModel)]="form.genre"
+         required
+         genre
+         #genre="ngModel">
+          <label for="genre">Genre</label>
+          <select>
+            <option value="---">---</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+          </select>
+         </ion-item>
+
+
+      
+
+
+
           <div class="item">
             <ion-button expand="block" shape="round"  color="tertiary" (click)="onSubmit(nom,prenom,datedenaissance, email, password)"> S'enregistrer</ion-button>
             <ion-item lines="none">

@@ -14,7 +14,7 @@
         </span>
 
 
-
+        <button (click)="test()">test</button>
         <ion-label class="username"></ion-label>
 
       </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="details">
                   <ion-label class="bold_lbl">Revenu</ion-label>
-                  <ion-label class="small_lbl">{{currentUser.revenu}}</ion-label>
+                  <ion-label class="small_lbl">{{currentUser.salaire}}</ion-label>
                 </div>
               </div>
             </ion-col>
@@ -91,7 +91,7 @@
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </div>
 
-        <div class="list_div" routerLink="/account">
+        <div class="list_div" routerLink="/account"> 
           <ion-label>Modifier les information du compte</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </div>

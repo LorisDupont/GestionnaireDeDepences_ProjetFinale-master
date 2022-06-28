@@ -16,7 +16,9 @@ export class RegisterPage implements OnInit {
     prenom: null,
     datedenaissance: null,
     email: null,
-    password: null
+    password: null,
+    genre: null,
+    salaire: null,
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -26,8 +28,8 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
   onSubmit(): void {
-    const {nom,prenom,datedenaissance, email, password } = this.form;
-    this.authService.register(nom,prenom,datedenaissance, email, password).subscribe({
+    const {nom,prenom,datedenaissance, email, password, genre, salaire} = this.form;
+    this.authService.register(nom,prenom,datedenaissance, email, password,genre,salaire).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
