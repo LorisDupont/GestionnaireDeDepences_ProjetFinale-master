@@ -4,9 +4,10 @@ const Op = db.Sequelize.Op;
 const Users = require("../controllers/user.controller")
 const compteRepository = require("../repository/compte-repository")
 exports.create = (req, res) => {
+  console.log(req.body);
 
     if (!req.body.nom) {
-      res.status(400).send({
+      res.status(400).json({
         message: "Content can not be empty!"
       });
       return;
@@ -15,12 +16,13 @@ exports.create = (req, res) => {
 
       nom: req.body.nom,
       description: req.body.description,
-  
+      // userId: req.body.userId
   
     };
 
-   Comptes.create( compte )
+    Comptes.create( compte )
     .then( data => {
+      console.log(req.body);
         if (req.body.userId){
           Users.findByPk(req.body.userId)
         
@@ -33,7 +35,7 @@ exports.create = (req, res) => {
       });
      }
      else{
-      data.setUser([1]).then(() =>{
+      data.setUser([id]).then(() =>{
         res.send({message: "compte ok"})
        })
      }

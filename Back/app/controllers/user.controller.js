@@ -10,7 +10,7 @@
 //   res.status(200).send("Admin Content.");
 // };
 
-const dbConnector = require("../models/index");
+
 const db = require("../models");
 const User = db.user;
 const Op = db.Sequelize.Op;
@@ -65,8 +65,9 @@ exports.findAll = (req, res) => {
 };
 // Find a single user with an id
 exports.findByPk = (req, res) => {
-
-    User.findByPk({where: { id: req.params.userId },
+    const id = req.params.id;
+    User.findByPk(id,{
+      where: { id: req.params.userId },
       attributes: { exclude: ["password"] },
       include: [
         {
@@ -74,19 +75,17 @@ exports.findByPk = (req, res) => {
           attributes: { exclude: ["createdAt", "updatedAt"] },
         },
         {
-          model: dbConnector.comptes,
+          model: db.comptes,
           attributes: { exclude: ["createdAt", "updatedAt"] },
         },
         {
-          model: dbConnector.genres,
+          model: db.genre,
           attributes: { exclude: ["createdAt", "updatedAt"] },
         },
 
       ],
-    });
-    res.status(200).json(user)
+    })
     .then(data => {
-      
       if (data) {
         res.send(data);
       } else {
@@ -101,33 +100,6 @@ exports.findByPk = (req, res) => {
       });
     });
 };
-
-// exports.findByPk = async (req, res, next) => {
-//   try {
-//     let user = await dbConnector.User.findByPk({
-//       where: { id: req.params.userId },
-//       attributes: { exclude: ["password"] },
-//       include: [
-//         {
-//           model: db.role,
-//           attributes: { exclude: ["createdAt", "updatedAt"] },
-//         },
-//         {
-//           model: dbConnector.comptes,
-//           attributes: { exclude: ["createdAt", "updatedAt"] },
-//         },
-//         {
-//           model: dbConnector.genres,
-//           attributes: { exclude: ["createdAt", "updatedAt"] },
-//         },
-
-//       ],
-//     });
-//     res.status(200).json(user);
-//   } catch (err) {
-//     res.json({ message: err.errors });
-//   }
-// };
 // Update a user by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
