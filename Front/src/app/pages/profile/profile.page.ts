@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,23 +16,48 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfilePage implements OnInit {
 
   currentUser: any;
-  id: any;
+  users: any  = [];
+  infos:any= [];
+  constructor( private router: Router , private http: HttpClient ,private authService: AuthService, private token: TokenStorageService, private user: UserService) {
+    this.users = this.user.getInfo();
+    this.user.getInfo()
+    .subscribe(response => {
+      this.infos = response;
+    });
 
-
-  constructor( private router: Router ,private authService: AuthService, private token: TokenStorageService, private userService: UserService) { }
+   }
  
 
   ngOnInit() {
     this.currentUser = this.token.getUser();
+    if (!this.currentUser.id){
+      document.getElementById("logout").style.display = "none"
+      document.getElementById("connect").style.display = "flex"
+
+    }else{
+      document.getElementById("logout").style.display = "flex"
+      document.getElementById("connect").style.display = "none"
+      
+    }
+
+    this.user.getInfo()
+    .subscribe(response => {
+      this.infos = response;
+    });
 
   }
   test(){
     console.log(this.currentUser.nom);
     console.log(this.currentUser.id);
-    console.log(this.currentUser.datedenaissance);
-    console.log(this.currentUser.salaire);
+    console.log(this.infos.salaire);
+
+   
     
   }
+
+  getData(){
+    
+ }
   logout(){
     this.authService.logout().subscribe({
       next: data => {
