@@ -93,6 +93,10 @@ export class ProfilePage implements OnInit {
   console.log(this.solde, this.salaire);
   
  }
+ epargne(){
+  document.getElementById('modalEpargne').style.display="flex";
+  
+ }
 
 
 

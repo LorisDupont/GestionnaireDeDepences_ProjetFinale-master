@@ -47,7 +47,7 @@
                 </div>
                 <div class="details">
                   <ion-label class="bold_lbl">Epargne</ion-label>
-                  <ion-label class="small_lbl">{{currentUser.epargne}}</ion-label>
+                  <ion-label class="small_lbl">15</ion-label>
                 </div>
               </div>
             </ion-col>
@@ -81,6 +81,18 @@
 
       </div>
       <ion-button shape="round" color="success"expand="block" (click)="payer()" > J'ai été payer!</ion-button>
+      <ion-button shape="round" color="success"expand="block" (click)="epargne()" > Ajouter à l'épargne!</ion-button>
+
+
+      <div id="modalEpargne" style="display: none;">
+        <span>
+          <h3>Votre épargne</h3>
+          <div class="compteur">
+            <label for="épargne">Combien voulez-vous épargner</label>
+            <input type="number" placeholder="epargne" [(ngModel)]='epargne' />
+          </div>
+        </span>
+      </div>
 
         <div class="list_div" routerLink="/edit-profil">
           <ion-label>Modifier le profile</ion-label>
