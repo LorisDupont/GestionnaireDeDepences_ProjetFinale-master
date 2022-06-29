@@ -18,12 +18,15 @@ export class ProfilePage implements OnInit {
   currentUser: any;
   users: any  = [];
   infos:any= [];
+  salaire:number;
+  solde:number;
   constructor( private router: Router , private http: HttpClient ,private authService: AuthService, private token: TokenStorageService, private user: UserService) {
     this.users = this.user.getInfo();
     this.user.getInfo()
     .subscribe(response => {
       this.infos = response;
     });
+    this.solde = this.infos.salaire
 
    }
  
@@ -43,13 +46,17 @@ export class ProfilePage implements OnInit {
     this.user.getInfo()
     .subscribe(response => {
       this.infos = response;
+      this.solde = Number(this.infos.salaire)
+      this.salaire= Number(this.infos.salaire)
     });
-
+    
   }
   test(){
     console.log(this.currentUser.nom);
     console.log(this.currentUser.id);
     console.log(this.infos.salaire);
+    console.log(this.solde);
+    
 
    
     
@@ -78,6 +85,13 @@ export class ProfilePage implements OnInit {
   reloadPage() {
     window.location.reload();
 
+
+ }
+
+ payer(){
+  this.solde += this.salaire
+  console.log(this.solde, this.salaire);
+  
  }
 
 

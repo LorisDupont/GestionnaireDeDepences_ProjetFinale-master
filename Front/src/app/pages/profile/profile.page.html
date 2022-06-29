@@ -34,7 +34,7 @@
                 </div>
                 <div class="details">
                   <ion-label class="bold_lbl">Solde</ion-label>
-                  <ion-label class="small_lbl">{{currentUser.solde}}</ion-label>
+                  <ion-label class="small_lbl">{{solde}}</ion-label>
                 </div>
               </div>
             </ion-col>
@@ -80,7 +80,7 @@
         </ion-grid>
 
       </div>
-      
+      <ion-button shape="round" color="success"expand="block" (click)="payer()" > J'ai été payer!</ion-button>
 
         <div class="list_div" routerLink="/edit-profil">
           <ion-label>Modifier le profile</ion-label>
