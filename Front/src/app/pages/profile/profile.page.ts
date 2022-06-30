@@ -14,15 +14,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
+  
   currentUser: any;
   users: any  = [];
   infos:any= [];
   salaire:number;
   solde:number;
   constructor( private router: Router , private http: HttpClient ,private authService: AuthService, private token: TokenStorageService, private user: UserService) {
-    this.users = this.user.getInfo();
-    this.user.getInfo()
+    this.currentUser = this.token.getUser();
+
+    this.users = this.user.getInfo(this.currentUser.id);
+    this.user.getInfo(this.currentUser.id)
     .subscribe(response => {
       this.infos = response;
     });
@@ -32,7 +34,6 @@ export class ProfilePage implements OnInit {
  
 
   ngOnInit() {
-    this.currentUser = this.token.getUser();
     if (!this.currentUser.id){
       document.getElementById("logout").style.display = "none"
       document.getElementById("connect").style.display = "flex"
@@ -43,12 +44,14 @@ export class ProfilePage implements OnInit {
       
     }
 
-    this.user.getInfo()
+    this.user.getInfo(this.currentUser.id)
     .subscribe(response => {
       this.infos = response;
       this.solde = Number(this.infos.salaire)
       this.salaire= Number(this.infos.salaire)
     });
+    console.log(this.currentUser.id);
+    
     
   }
   test(){
@@ -56,6 +59,7 @@ export class ProfilePage implements OnInit {
     console.log(this.currentUser.id);
     console.log(this.infos.salaire);
     console.log(this.solde);
+    
     
 
    

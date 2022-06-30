@@ -66,25 +66,7 @@ exports.findAll = (req, res) => {
 // Find a single user with an id
 exports.findByPk = (req, res) => {
     const id = req.params.id;
-    User.findByPk(id,{
-      where: { id: req.params.userId },
-      attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: db.role,
-          attributes: { exclude: ["createdAt", "updatedAt"] },
-        },
-        {
-          model: db.comptes,
-          attributes: { exclude: ["createdAt", "updatedAt"] },
-        },
-        {
-          model: db.genre,
-          attributes: { exclude: ["createdAt", "updatedAt"] },
-        },
-
-      ],
-    })
+    User.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);

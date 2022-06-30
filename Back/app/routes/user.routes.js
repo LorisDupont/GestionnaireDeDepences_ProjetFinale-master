@@ -1,7 +1,7 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/user.controller");
-
-
+const compteController = require("../controllers/compte.controller");
+const usersController = require("../controllers/user.controller");
 
 module.exports = function(app) {
   const users = require("../controllers/user.controller");
@@ -37,6 +37,12 @@ module.exports = function(app) {
     router.delete("/", users.deleteAll);
     app.use('/api/users', router);
 
+    // router.get(
+    //   "/comptes/:id/:userId",
+    //   authJwt.verifyToken,
+
+    //   compteController.addToComptes
+    // );
   // app.get(
   //   "/api/admin",
   //   [authJwt.verifyToken, authJwt.isAdmin],

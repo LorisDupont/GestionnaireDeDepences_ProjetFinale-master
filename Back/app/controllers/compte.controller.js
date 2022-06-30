@@ -16,7 +16,7 @@ exports.create = (req, res) => {
 
       nom: req.body.nom,
       description: req.body.description,
-      // userId: req.body.userId
+      userId: req.body.userId
   
     };
 
@@ -30,8 +30,6 @@ exports.create = (req, res) => {
            data.setUser(user).then(() =>{
             res.send({message: "compte ok"})
            })
-           
-           
       });
      }
      else{
@@ -72,7 +70,7 @@ exports.create = (req, res) => {
         } else {
           res.status(404).send({
             message: `error`
-          });
+          });  
         }
       })
       .catch(err => {
@@ -92,4 +90,17 @@ exports.delete = (req, res) => {
 
 exports.deleteAll = (req, res) => {
   
+};
+
+
+exports.addToComptes = async (req, res, next) => {
+  try {
+    const compte = await db.comptes.findOne({
+      where: { UserId: req.userID },
+    });
+
+    
+  } catch (err) {
+    res.json({ message: err.errors });
+  }
 };

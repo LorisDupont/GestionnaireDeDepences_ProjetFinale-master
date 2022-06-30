@@ -27,7 +27,7 @@ export class ComptePage implements OnInit {
 
   onSubmit(){
     const { nom, description } = this.form;
-    const id = {userId : this.id}
+    const id = this.id
 
     // console.log(id);
     

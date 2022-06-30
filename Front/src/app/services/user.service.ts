@@ -18,14 +18,14 @@ export class UserService {
   }
 
   user: any;
-  getInfo(){
-    return this.http.get(`http://localhost:5001/api/users/1`)
+  getInfo(id: any){
+    return this.http.get(`http://localhost:5001/api/users/`+ id)
 
   }
   
 
   getMoreInfo(id: any){
-    return this.http.get(`http://localhost:5001/api/users/1` );
+    return this.http.get(`http://localhost:5001/api/users/`+ id);
 
   }
 }
