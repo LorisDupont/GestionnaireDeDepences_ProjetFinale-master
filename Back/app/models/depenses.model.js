@@ -15,6 +15,7 @@ module.exports = (sequelize, Sequelize) => {
     genre: {
       type: Sequelize.STRING
     },
+
     date: {
       type: Sequelize.DATE
     }

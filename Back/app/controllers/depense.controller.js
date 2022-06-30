@@ -4,29 +4,45 @@ const Op = db.Sequelize.Op;
 const Solde = db.solde
 // Create and Save a new Depense
 exports.create = (req, res) => {
-   // Validate request
-   if (!req.body.nom) {
-    res.status(400).send({
+  console.log(req.body);
+
+  if (!req.body.nom) {
+    res.status(400).json({
       message: "Content can not be empty!"
     });
     return;
   }
-  // Create a Depense
   const depense = {
+
     nom: req.body.nom,
-    description: req.body.description,
     valeur: req.body.valeur,
     date: req.body.date,
     type: req.body.type,
-    genre:  req.body.genre,
+    genre: req.body.genre,
+    description: req.body.description,
+    userId: req.body.userId
 
   };
-  // Save Depense in the database
-  Depense.create(depense)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
+
+  Depense.create( depense )
+  .then( data => {
+    console.log(req.body);
+      if (req.body.userId){
+        Users.findByPk(req.body.userId)
+      
+        .then(user => {
+         data.setUser(user).then(() =>{
+          res.send({message: "depense ok"})
+         })
+    });
+   }
+   else{
+    data.setUser([id]).then(() =>{
+      res.send({message: "depense ok"})
+     })
+   }
+  } )
+   .catch(err => {
       res.status(500).send({
         message:
           err.message || "error"

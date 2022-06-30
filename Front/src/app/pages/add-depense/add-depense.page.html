@@ -16,25 +16,25 @@
     >
     <ion-item class="item"  >
       <ion-label floating >Nom</ion-label>
-      <ion-input [(ngModel)]="depense.nom"  placeholder="Nom" type="text"></ion-input>
+      <ion-input [(ngModel)]="depense.nom" [ngModelOptions]="{standalone: true}"   placeholder="Nom" type="text"></ion-input>
     </ion-item>
 
 
     <ion-item class="item">
       <ion-label >Prix</ion-label>
-      <ion-input [(ngModel)]="depense.valeur"  placeholder="Valeur" type="number"></ion-input>
+      <ion-input [(ngModel)]="depense.valeur" [ngModelOptions]="{standalone: true}"  placeholder="Valeur" type="number"></ion-input>
     </ion-item>
 
 
     <ion-item class="item"  >
       <ion-label >Date d'achat</ion-label>
-      <ion-input [(ngModel)]="depense.date" placeholder="Date d'achat" type="date"></ion-input>
+      <ion-input [(ngModel)]="depense.date" [ngModelOptions]="{standalone: true}" placeholder="Date d'achat" type="date"></ion-input>
     </ion-item>
 
 
     <ion-item class="item">
       <ion-label >Type de dépense</ion-label>
-      <ion-select [(ngModel)]="depense.type" placeholder="---">
+      <ion-select [(ngModel)]="depense.type" [ngModelOptions]="{standalone: true}" placeholder="---">
       <ion-select-option placeholder="---">---</ion-select-option>
       <ion-select-option [value]="type.title" *ngFor="let type of types" >{{type.title}}</ion-select-option>
 
@@ -44,7 +44,7 @@
 
     <ion-item class="item">
       <ion-label >Catégorie</ion-label>
-      <ion-select [(ngModel)]="depense.categorie" placeholder="---">
+      <ion-select [(ngModel)]="depense.categorie" [ngModelOptions]="{standalone: true}" placeholder="---">
         <ion-select-option placeholder="---">---</ion-select-option>
         <ion-select-option [value]="cat.title" *ngFor="let cat of categories" >{{cat.title}}</ion-select-option>
 
@@ -52,7 +52,7 @@
     </ion-item>
     <ion-item class="item"  >
       <ion-label floating >Description</ion-label>
-      <ion-input [(ngModel)]="depense.description"   placeholder="Description" type="text"></ion-input>
+      <ion-input [(ngModel)]="depense.description" [ngModelOptions]="{standalone: true}"   placeholder="Description" type="text"></ion-input>
     </ion-item>
     
 
