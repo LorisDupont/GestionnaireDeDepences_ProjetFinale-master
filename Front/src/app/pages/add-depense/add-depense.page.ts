@@ -21,7 +21,7 @@ export class AddDepensePage implements OnInit {
     valeur: null,
     description: null,
     type: null,
-    genre: null,
+    categorie: null,
     date: null,
     image: null,
     pictures: null,
@@ -89,9 +89,9 @@ export class AddDepensePage implements OnInit {
  
   
   onSubmit(){
-    const { nom,valeur,description,type,genre,date,  } = this.form;
+    const { nom,valeur,description,type,categorie,date,  } = this.depense;
 
-     this.depenseService.create(nom,valeur,description,type,genre,date).subscribe({
+     this.depenseService.create(nom,valeur,description,type,categorie,date).subscribe({
       
       next: data => {
         console.log(data);
