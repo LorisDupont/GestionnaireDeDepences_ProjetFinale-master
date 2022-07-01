@@ -12,4 +12,54 @@
     <ion-button shape="round" color="secondary">Editer un compte</ion-button>
 
   </ion-buttons>
+ <div id="depenses" class="liste">
+      <ion-button class="adddepense" color="success" expand="block" style="text-align: center;" routerLink="/add-depense">Ajouter une dépense</ion-button>
+      <ion-card color="light" class="liste-depenses">
+        <div *ngFor="let item of items" >
+          
+          <ion-card id="ionCard" style="display: flex; flex-direction: column;">
+
+            <ion-card-content id="details" >
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="6" >
+                    <div class="flex_div">
+
+                      <div class="details">
+                        <ion-label class="bold_lbl"><strong>Nom:</strong></ion-label>
+                        <ion-label class="small_lbl">&nbsp;{{item.nom}} €</ion-label>
+                      </div>
+                    </div>
+                  </ion-col>
+      
+    
+
+      
+                  <ion-col size="6" >
+                    <div class="flex_div">
+                      
+                      <div class="details" style="display: flex;">
+                        <ion-label class="bold_lbl"><strong>Description:</strong>  </ion-label>
+                        <ion-label class="small_lbl">&nbsp; {{item.description}}</ion-label>
+                      </div>
+                    </div>
+                  </ion-col>
+
+
+      
+                 
+      
+                </ion-row>
+              </ion-grid>
+            
+          </ion-card-content> 
+          </ion-card> 
+        
+         
+        </div>
+
+
+      </ion-card>
+      
+ </div>
 </ion-content>

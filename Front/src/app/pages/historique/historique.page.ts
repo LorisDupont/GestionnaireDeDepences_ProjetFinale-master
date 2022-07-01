@@ -12,20 +12,26 @@ export class HistoriquePage implements OnInit {
   depenses: any = [];
   infos: any= [];
   isOpen = false;
+  
 url = `http://localhost:5001/api/depenses`
 items= []
+item = null
   constructor(private http: HttpClient ,private service: DepenseService) {
     this.http.get(this.url).toPromise().then(data => {
       console.log(data);
       for(let i in data)
         if(data.hasOwnProperty(i))
           this.items.push(data[i])
+          for(let i = 0; i < this.items[i].categorie.length;i++){
+            console.log(this.items[i].categorie);
+            
+          }
+          
+          
 
     })
-    if(this.depenses.categorie == "Loisir"){
-      document.getElementById('ionCard').style.backgroundColor="red"
-    }
-    
+   
+
    }
 
   ngOnInit() {
@@ -35,7 +41,6 @@ items= []
 
     // });
     // console.log(this.infos);
-
   }
 
   openModal(){

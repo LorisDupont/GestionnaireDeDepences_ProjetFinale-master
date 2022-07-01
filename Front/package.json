@@ -28,6 +28,7 @@
     "chart.js": "^3.7.1",
     "httpclient": "^0.1.0",
     "injectable": "^0.0.1",
+    "itemslide": "^1.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

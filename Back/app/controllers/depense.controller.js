@@ -63,6 +63,10 @@ exports.create = (req, res) => {
 
       nom: req.body.nom,
       description: req.body.description,
+      type: req.body.type,
+      categorie: req.body.categorie,
+      valeur: req.body.valeur,
+      date: req.body.date,
       userId: req.body.userId
   
     };
@@ -97,7 +101,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     const nom = req.query.nom;
     var condition = nom ? { nom: { [Op.like]: `%${nom}%` } } : null;
-    Depense.findAll({ where: condition }, {include: {Solde}})
+    Depense.findAll()
       .then(data => {
         res.send(data);
         console.log('ok');
