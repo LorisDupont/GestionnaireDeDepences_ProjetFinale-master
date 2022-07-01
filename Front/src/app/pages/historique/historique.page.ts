@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Depense } from 'src/app/models/depense-model';
 import { DepenseService } from 'src/app/services/depense.service';
 import { HttpClient } from '@angular/common/http';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-historique',
@@ -12,25 +13,39 @@ export class HistoriquePage implements OnInit {
   depenses: any = [];
   infos: any= [];
   isOpen = false;
+
   
 url = `http://localhost:5001/api/depenses`
 items= []
 item = null
-  constructor(private http: HttpClient ,private service: DepenseService) {
+newArr: string[] = []
+  constructor(private http: HttpClient ,private service: DepenseService,private tokenStorage: TokenStorageService) {
+    
+    let idU = this.tokenStorage.getUser().id
     this.http.get(this.url).toPromise().then(data => {
       console.log(data);
-      for(let i in data)
-        if(data.hasOwnProperty(i))
-          this.items.push(data[i])
-          for(let i = 0; i < this.items[i].categorie.length;i++){
-            console.log(this.items[i].categorie);
-            
-          }
-          
-          
+      for(let d in data){
+        let idD = data[d].id
+        
+        for(let i in data ){
+        
+          if(data.hasOwnProperty(i)   ){
+             for(let o = 0; o <= 1; o++)
+              this.items.push(data[i])
+              console.log(idD, idU);
+              
+                
+        }
+        if(idD == idD)
+          document.getElementById('cart').style.display="column"
+      }
+      }
+      
+      
+      
 
+      
     })
-   
 
    }
 
@@ -41,6 +56,7 @@ item = null
 
     // });
     // console.log(this.infos);
+    
   }
 
   openModal(){
@@ -74,9 +90,8 @@ item = null
     document.getElementById('filtercloses').style.display='none';
   }
 
-  delete(id){
+  delete(id: any){
     this.http.delete(id)
   } 
-
 
 }

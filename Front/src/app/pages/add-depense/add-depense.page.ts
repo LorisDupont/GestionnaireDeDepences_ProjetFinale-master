@@ -24,7 +24,7 @@ export class AddDepensePage implements OnInit {
     type: null,
     categorie: null,
     date: null,
-
+    id:null,
     image: null,
     pictures: null,
 
@@ -33,7 +33,7 @@ export class AddDepensePage implements OnInit {
     this.depense = {} as Depense;
     let date = this.depense.date
     this.id = this.tokenStorage.getUser().id
-    console.log(this.id);
+    console.log(tokenStorage.getUser().id );
     this.depense.pictures = [];
     this.categories = [
       {
@@ -96,9 +96,10 @@ export class AddDepensePage implements OnInit {
   onSubmit(){
 
 
-    const { nom,valeur,description,type,categorie,date } = this.depense;
-    const id = this.id
-     this.depenseService.create(nom,valeur,description,type,categorie,date, id).subscribe({
+    const { nom,valeur,description,type,categorie,date} = this.depense;
+    // const id = this.id
+   const id = this.tokenStorage.getUser().id
+    this.depenseService.create(nom,valeur,description,type,categorie,date, id).subscribe({
       
       next: data => {
         console.log(data);

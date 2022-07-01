@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.DATE
     },
     userId:{
-      type: Sequelize.STRING
+      type: Sequelize.DECIMAL
     }
 
 

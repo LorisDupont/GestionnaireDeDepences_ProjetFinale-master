@@ -67,7 +67,7 @@ exports.create = (req, res) => {
       categorie: req.body.categorie,
       valeur: req.body.valeur,
       date: req.body.date,
-      userId: req.body.userId
+      userId: req.body.userId,
   
     };
 

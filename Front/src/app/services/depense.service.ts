@@ -32,7 +32,20 @@ export class DepenseService {
   //   return this.http.get(
   //     AUTH_API,httpOptions
   //   )
+   
+    
+    
   // }
+  delete(id: any): Observable<any> {
+    return this.http.post(
+      AUTH_API + `:${{id}}`,
+      {
+        id,
+
+      },
+      httpOptions
+    )
+  }
   findByPk(id: any): Observable<any> {
     return this.http.post(
       AUTH_API + `:${{id}}`,
