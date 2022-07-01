@@ -26,18 +26,19 @@ newArr: string[] = []
       console.log(data);
       for(let d in data){
         let idD = data[d].id
-        
+
         for(let i in data ){
         
           if(data.hasOwnProperty(i)   ){
              for(let o = 0; o <= 1; o++)
               this.items.push(data[i])
               console.log(idD, idU);
+              console.log(this.items.length);
+              
               
                 
         }
-        if(idD == idD)
-          document.getElementById('cart').style.display="column"
+    
       }
       }
       

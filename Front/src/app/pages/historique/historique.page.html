@@ -13,80 +13,82 @@
      
         <div *ngFor="let item of items; let i = index;"  >
           <div *ngIf="item.userId  == this.tokenStorage.getUser().id">
-          
-            <ion-card id="ionCard" style="display: flex; flex-direction: column;">
-              <ion-card-header class="header" >
-                <img src='../../../assets/Objet_en_studio.jpg'/>
-                <div   id="NomType" class="nomType" style="display: flex ; justify-content: space-between;color: #000; bottom: 40px;">
-                  <ion-card-title>{{item.nom}} </ion-card-title>
+            <div *ngIf="item.id  == item.id">
+              <ion-card id="ionCard" style="display: flex; flex-direction: column;">
+                <ion-card-header class="header" >
+                  <img src='../../../assets/Objet_en_studio.jpg'/>
+                  <div   id="NomType" class="nomType" style="display: flex ; justify-content: space-between;color: #000; bottom: 40px;">
+                    <ion-card-title>{{item.nom}} </ion-card-title>
+                    
+                    <ion-card-subtitle>{{item.categorie}}</ion-card-subtitle>
+                  </div>
                   
-                  <ion-card-subtitle>{{item.categorie}}</ion-card-subtitle>
-                </div>
-                
-  
-              </ion-card-header>
-            
-              <ion-card-content id="details" >
-                <ion-grid fixed>
-                  <ion-row>
-                    <ion-col size="6" >
-                      <div class="flex_div">
-  
-                        <div class="details">
-                          <ion-label class="bold_lbl"><strong>Prix:</strong></ion-label>
-                          <ion-label class="small_lbl">&nbsp;{{item.valeur}} €</ion-label>
-                        </div>
-                      </div>
-                    </ion-col>
-        
-        
-                    <ion-col size="6" >
-                      <div class="flex_div">
-  
-                        <div class="details">
-                          <ion-label class="bold_lbl"><strong>Type:</strong></ion-label>
-                          <ion-label class="small_lbl">&nbsp;{{item.type}}</ion-label>
-                        </div>
-                      </div>
-                    </ion-col>
-  
-                    <ion-col size="6" >
-                      <div class="flex_div">
-                        
-                        <div class="details" style="display: flex;">
-                          <ion-label class="bold_lbl"><strong>Date:</strong>  </ion-label>
-                          <ion-label class="small_lbl">&nbsp; {{item.date}}</ion-label>
-                        </div>
-                      </div>
-                    </ion-col>
-        
-                    <ion-col size="6" >
-                      <div class="flex_div">
-                        
-                        <div class="details" style="display: flex;">
-                          <ion-label class="bold_lbl"><strong>Description:</strong>  </ion-label>
-                          <ion-label class="small_lbl">&nbsp; {{item.description}}</ion-label>
-                        </div>
-                      </div>
-                    </ion-col>
-  
-  
-        
-                   
-        
-                  </ion-row>
-                </ion-grid>
+    
+                </ion-card-header>
               
-              <ion-button (click)="delete()" expand="block" color="danger" shape="round">
-                <ion-icon name="trash"></ion-icon>
-                Supprimer
-              </ion-button> 
-              <ion-button (click)="delete(id)" expand="block" color="warning" shape="round">
-                <ion-icon style="margin-right: 10px; color: azure;" name="create"></ion-icon>
-                Modifier
-              </ion-button>
-            </ion-card-content> 
-            </ion-card> 
+                <ion-card-content id="details" >
+                  <ion-grid fixed>
+                    <ion-row>
+                      <ion-col size="6" >
+                        <div class="flex_div">
+    
+                          <div class="details">
+                            <ion-label class="bold_lbl"><strong>Prix:</strong></ion-label>
+                            <ion-label class="small_lbl">&nbsp;{{item.valeur}} €</ion-label>
+                          </div>
+                        </div>
+                      </ion-col>
+          
+          
+                      <ion-col size="6" >
+                        <div class="flex_div">
+    
+                          <div class="details">
+                            <ion-label class="bold_lbl"><strong>Type:</strong></ion-label>
+                            <ion-label class="small_lbl">&nbsp;{{item.type}}</ion-label>
+                          </div>
+                        </div>
+                      </ion-col>
+    
+                      <ion-col size="6" >
+                        <div class="flex_div">
+                          
+                          <div class="details" style="display: flex;">
+                            <ion-label class="bold_lbl"><strong>Date:</strong>  </ion-label>
+                            <ion-label class="small_lbl">&nbsp; {{item.date}}</ion-label>
+                          </div>
+                        </div>
+                      </ion-col>
+          
+                      <ion-col size="6" >
+                        <div class="flex_div">
+                          
+                          <div class="details" style="display: flex;">
+                            <ion-label class="bold_lbl"><strong>Description:</strong>  </ion-label>
+                            <ion-label class="small_lbl">&nbsp; {{item.description}}</ion-label>
+                          </div>
+                        </div>
+                      </ion-col>
+    
+    
+          
+                     
+          
+                    </ion-row>
+                  </ion-grid>
+                
+                <ion-button (click)="delete()" expand="block" color="danger" shape="round">
+                  <ion-icon name="trash"></ion-icon>
+                  Supprimer
+                </ion-button> 
+                <ion-button (click)="delete(id)" expand="block" color="warning" shape="round">
+                  <ion-icon style="margin-right: 10px; color: azure;" name="create"></ion-icon>
+                  Modifier
+                </ion-button>
+              </ion-card-content> 
+              </ion-card> 
+            </div>
+
           </div>
 
           </div>
