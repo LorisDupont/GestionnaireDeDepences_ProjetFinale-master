@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  Depense } from 'src/app/models/depense-model';
+import { DepenseService } from 'src/app/services/depense.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-historique',
@@ -7,14 +9,29 @@ import {  Depense } from 'src/app/models/depense-model';
   styleUrls: ['./historique.page.scss'],
 })
 export class HistoriquePage implements OnInit {
-  depense: Depense;
+  depenses: any = [];
+  infos: any= [];
+url = `http://localhost:5001/api/depenses`
+items= []
+  constructor(private http: HttpClient ,private service: DepenseService) {
+    this.http.get(this.url).toPromise().then(data => {
+      console.log(data);
+      for(let i in data)
+        if(data.hasOwnProperty(i))
+          this.items.push(data[i])
 
-
-  constructor() {
-    this.depense = {} as Depense;
+    })
+    console.log(this.items);
+    
    }
 
   ngOnInit() {
+    // this.service.findAll()
+    // .subscribe(response => {
+    //   this.infos = response;
+
+    // });
+    // console.log(this.infos);
   }
 
   openModal(){

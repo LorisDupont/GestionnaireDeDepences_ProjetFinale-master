@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class DepenseService {
   constructor(private http: HttpClient) {}
-  create(nom: string, valeur: number, description: string, type: string, categorie: string, date: Date): Observable<any> {
+  create(nom: string, valeur: number, description: string, type: string, categorie: string, date: any,userId: any ): Observable<any> {
     return this.http.post(
       AUTH_API ,
       {
@@ -23,10 +23,16 @@ export class DepenseService {
         type,
         categorie,
         date,
+        userId
       },
       httpOptions
     );
   }
+  // findAll(): Observable<any> {
+  //   return this.http.get(
+  //     AUTH_API,httpOptions
+  //   )
+  // }
   findByPk(id: any): Observable<any> {
     return this.http.post(
       AUTH_API + `:${{id}}`,

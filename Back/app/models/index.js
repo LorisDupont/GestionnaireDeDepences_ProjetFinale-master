@@ -62,15 +62,11 @@ db.user.hasOne(db.comptes,{
 })
 // ------------------------------------------------SOLDE_COMPTE--------------------------------------------------------
 db.solde.hasOne(db.comptes)
-db.comptes.belongsTo(db.solde
-
-)
+db.comptes.belongsTo(db.solde)
 
 // ------------------------------------------------User_Compte--------------------------------------------------------
 db.solde.hasOne(db.comptes)
-db.comptes.belongsTo(db.solde
-
-)
+db.comptes.belongsTo(db.solde)
 // ------------------------------------------------REVENU--------------------------------------------------------
 // db.revenu.hasOne(db.user, {
 //   through: "user_revenus",
@@ -83,16 +79,14 @@ db.comptes.belongsTo(db.solde
 
 // })
 // ------------------------------------------------DEPENSE--------------------------------------------------------
-// db.depenses.hasOne(db.user, {
-//   through: "user_depenses",
-//   foreignKey:"depensesId",
+db.depenses.belongsTo(db.user, {
+  foreignKey:"userId",
 
-// })
-// db.user.belongsTo(db.depenses,{
-//   through: "user_depenses",
-//   foreignKey: "userId",
+})
+db.user.hasOne(db.depenses,{
+  foreignKey: "userId",
 
-// })
+})
 // ------------------------------------------------TYPE_DEPENSES--------------------------------------------------------
 // db.type.hasOne(db.depenses, {
 //   through: "depense_types",

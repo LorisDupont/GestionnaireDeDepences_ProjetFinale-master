@@ -10,11 +10,12 @@
     <div id="depenses" class="liste">
       <ion-button class="adddepense" color="success" expand="block" style="text-align: center;" routerLink="/add-depense">Ajouter une dépense</ion-button>
       <ion-card color="light" class="liste-depenses">
-        <ion-list>
-          <ion-item>
-            <ion-title>{{depense.nom}}</ion-title>
-          </ion-item>
-        </ion-list>
+        <div *ngFor="let item of items">
+          <ion-list >
+            {{item.valeur}}
+          </ion-list>
+        </div>
+
 
       </ion-card>
 

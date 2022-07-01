@@ -3,52 +3,95 @@ const Depense = db.depenses;
 const Op = db.Sequelize.Op;
 const Solde = db.solde
 // Create and Save a new Depense
+// exports.create = (req, res) => {
+//   console.log(req.body);
+
+//   if (!req.body.nom) {
+//     res.status(400).json({
+//       message: "Content can not be empty!"
+//     });
+//     return;
+//   }
+//   const depense = {
+
+//     nom: req.body.nom,
+//     valeur: req.body.valeur,
+//     date: req.body.date,
+//     type: req.body.type,
+//     categorie: req.body.categorie,
+//     description: req.body.description,
+//     userId: req.body.userId
+
+//   };
+
+//   Depense.create( depense )
+//   .then( data => {
+//     console.log(req.body);
+//       if (req.body.userId){
+//         Users.findByPk(req.body.userId)
+      
+//         .then(user => {
+//          data.setUser(user).then(() =>{
+//           res.send({message: "depense ok"})
+//          })
+//     });
+//    }
+//    else{
+//     data.setUser([id]).then(() =>{
+//       res.send({message: "depense ok"})
+//      })
+//    }
+//   } )
+//    .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || "error"
+//       });
+//     });
+// };
+
 exports.create = (req, res) => {
   console.log(req.body);
 
-  if (!req.body.nom) {
-    res.status(400).json({
-      message: "Content can not be empty!"
-    });
-    return;
-  }
-  const depense = {
-
-    nom: req.body.nom,
-    valeur: req.body.valeur,
-    date: req.body.date,
-    type: req.body.type,
-    categorie: req.body.categorie,
-    description: req.body.description,
-    userId: req.body.userId
-
-  };
-
-  Depense.create( depense )
-  .then( data => {
-    console.log(req.body);
-      if (req.body.userId){
-        Users.findByPk(req.body.userId)
-      
-        .then(user => {
-         data.setUser(user).then(() =>{
-          res.send({message: "depense ok"})
-         })
-    });
-   }
-   else{
-    data.setUser([id]).then(() =>{
-      res.send({message: "depense ok"})
-     })
-   }
-  } )
-   .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "error"
+    if (!req.body.nom) {
+      res.status(400).json({
+        message: "Content can not be empty!"
       });
-    });
-};
+      return;
+    }
+    const depense = {
+
+      nom: req.body.nom,
+      description: req.body.description,
+      userId: req.body.userId
+  
+    };
+
+    Depense.create( depense )
+    .then( data => {
+      console.log(req.body);
+        if (req.body.userId){
+          Users.findByPk(req.body.userId)
+        
+          .then(user => {
+           data.setUser(user).then(() =>{
+            res.send({message: "depense ok"})
+           })
+      });
+     }
+     else{
+      data.setUser([id]).then(() =>{
+        res.send({message: "depense ok"})
+       })
+     }
+    } )
+     .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "error"
+        });
+      });
+  };
 
 // Retrieve all Depenses from the database.
 exports.findAll = (req, res) => {
@@ -146,4 +189,5 @@ exports.deleteAll = (req, res) => {
               err.message || "Some error occurred while removing all Depenses."
           });
         });
-};
+}
+

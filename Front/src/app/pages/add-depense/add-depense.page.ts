@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  Depense } from 'src/app/models/depense-model';
 import { DepenseService } from 'src/app/services/depense.service';
 import { Router } from '@angular/router';
-
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 
@@ -13,6 +13,7 @@ import { Camera, CameraResultType } from '@capacitor/camera';
   styleUrls: ['./add-depense.page.scss'],
 })
 export class AddDepensePage implements OnInit {
+  id: any
   depense: Depense;
   categories: any [];
   types: any [];
@@ -23,13 +24,16 @@ export class AddDepensePage implements OnInit {
     type: null,
     categorie: null,
     date: null,
+
     image: null,
     pictures: null,
 
   };
-  constructor(private depenseService: DepenseService, public router: Router) {
+  constructor(private depenseService: DepenseService, public router: Router,private tokenStorage : TokenStorageService) {
     this.depense = {} as Depense;
-
+    let date = this.depense.date
+    this.id = this.tokenStorage.getUser().id
+    console.log(this.id);
     this.depense.pictures = [];
     this.categories = [
       {
@@ -70,6 +74,7 @@ export class AddDepensePage implements OnInit {
    }
 
   ngOnInit() {
+    
   }
   takePicture = async () => {
     const image = await Camera.getPhoto({
@@ -89,13 +94,16 @@ export class AddDepensePage implements OnInit {
  
   
   onSubmit(){
-    const { nom,valeur,description,type,categorie,date,  } = this.depense;
 
-     this.depenseService.create(nom,valeur,description,type,categorie,date).subscribe({
+
+    const { nom,valeur,description,type,categorie,date } = this.depense;
+    const id = this.id
+     this.depenseService.create(nom,valeur,description,type,categorie,date, id).subscribe({
       
       next: data => {
         console.log(data);
-
+ 
+        
 
 
       },
