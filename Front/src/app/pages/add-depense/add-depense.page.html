@@ -140,7 +140,7 @@
                   <ion-label >Catégorie</ion-label>
                   <ion-select [(ngModel)]="depense.categorie" [ngModelOptions]="{standalone: true}" placeholder="---">
                     <ion-select-option placeholder="---">---</ion-select-option>
-                    <ion-select-option [value]="cat.title" *ngFor="let cat of categories" >{{cat.title}}</ion-select-option>
+                    <ion-select-option [value]="categorie.title" *ngFor="let categorie of categories" >{{categorie.title}}</ion-select-option>
             
                     </ion-select>
                 </ion-item>

@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class HistoriquePage implements OnInit {
   depenses: any = [];
   infos: any= [];
+  isOpen = false;
 url = `http://localhost:5001/api/depenses`
 items= []
   constructor(private http: HttpClient ,private service: DepenseService) {
@@ -21,7 +22,9 @@ items= []
           this.items.push(data[i])
 
     })
-    console.log(this.items);
+    if(this.depenses.categorie == "Loisir"){
+      document.getElementById('ionCard').style.backgroundColor="red"
+    }
     
    }
 
@@ -32,6 +35,7 @@ items= []
 
     // });
     // console.log(this.infos);
+
   }
 
   openModal(){
@@ -64,6 +68,10 @@ items= []
     document.getElementById('filter').style.width='0';
     document.getElementById('filtercloses').style.display='none';
   }
+
+  delete(id){
+    this.http.delete(id)
+  } 
 
 
 }
