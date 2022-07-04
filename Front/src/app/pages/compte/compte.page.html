@@ -71,29 +71,25 @@
 
 
           <ion-item class="item">
-            <label for="nom">Nom</label>
-            <input
-              type="nom"
-              class="form-control"
-              name="nom"
-
-              [(ngModel)]="form.nom"
-              required
-              nom
-              #nom="ngModel"
-            />
-          </ion-item>
-          <ion-item class="item">
             <label for="description">Description</label>
             <input
-              type="description"
+              type="text"
               class="form-control"
               name="description"
-              [(ngModel)]="form.description"
+              [(ngModel)]="compte.description"
               required
               #description="ngModel"
-            />
-          </ion-item>
+            /> </ion-item>
+            <ion-item class="item">
+              <label for="description">Description</label>
+              <input
+                type="text"
+                class="form-control"
+                name="description"
+                [(ngModel)]="compte.description"
+                required
+                #description="ngModel"
+              /> </ion-item>
           <div class="item">
 
             <ion-button expand="block" shape="round"  color="tertiary" type="submit" (click)="onSubmit()"> Ajouter</ion-button>

@@ -1,6 +1,6 @@
 export interface Compte {
-    nom: string;
-    description: string;
+    nom: any;
+    description: any;
     userId: number;
    
   

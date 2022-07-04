@@ -10,10 +10,10 @@
     <div id="depenses" class="liste">
       <ion-button class="adddepense" color="success" expand="block" style="text-align: center;" routerLink="/add-depense">Ajouter une dépense</ion-button>
       <ion-card id="cart" color="light" class="liste-depenses" >
-     
-        <div *ngFor="let item of items; let i = index;"  >
+        <div *ngFor="item of items">
           <div *ngIf="item.userId  == this.tokenStorage.getUser().id">
-            <div *ngIf="item.id  == item.id">
+            <div *ngIf="item.id  == item.id" >
+
               <ion-card id="ionCard" style="display: flex; flex-direction: column;">
                 <ion-card-header class="header" >
                   <img src='../../../assets/Objet_en_studio.jpg'/>
@@ -90,8 +90,10 @@
             </div>
 
           </div>
+        </div>
 
-          </div>
+
+         
 
 
 

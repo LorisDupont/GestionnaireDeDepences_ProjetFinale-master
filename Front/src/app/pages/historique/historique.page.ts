@@ -19,7 +19,7 @@ url = `http://localhost:5001/api/depenses`
 items= []
 item = null
 newArr: string[] = []
-  constructor(private http: HttpClient ,private service: DepenseService,private tokenStorage: TokenStorageService) {
+  constructor(private http: HttpClient ,private service: DepenseService,public tokenStorage: TokenStorageService) {
     
     let idU = this.tokenStorage.getUser().id
     this.http.get(this.url).toPromise().then(data => {
@@ -28,24 +28,26 @@ newArr: string[] = []
         let idD = data[d].id
 
         for(let i in data ){
-        
+     
           if(data.hasOwnProperty(i)   ){
-             for(let o = 0; o <= 1; o++)
-              this.items.push(data[i])
-              console.log(idD, idU);
-              console.log(this.items.length);
-              
-              
+             for(let o = 0; o < 1; o++){
+
+                this.items.push(data[i])
+                console.log(idD, idU);
+                console.log(this.items.length);
                 
+                }
+            
+            
         }
     
       }
       }
-      
-      
-      
 
+      // let newTab = [...new Set(this.items)]; 
+      // console.log(newTab);
       
+   
     })
 
    }
@@ -57,7 +59,7 @@ newArr: string[] = []
 
     // });
     // console.log(this.infos);
-    
+  
   }
 
   openModal(){
